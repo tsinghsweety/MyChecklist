@@ -5,18 +5,25 @@
 #topIcons{
     float:right;
 }
-.rowOdd{
+/*.row:(odd){
     background-color: #afeeee;
-}
-.row :nth-child(even){
+}*/
+.row:nth-child(even){
   background-color: #dcdcdc;
 }
-.row :nth-child(odd){
+.row:nth-child(odd){
   background-color: #aaaaaa;
 }
 #listGroup{
     width: 50%;
 }
 #saveAs{
-
+    margin-left: 41px;
+}
+#addTask{
+    margin-left: 41px;
+    padding: 10px 0px 10px 0px;
+}
+#tasks{
+    width: 80%;
 }

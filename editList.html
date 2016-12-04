@@ -3,19 +3,32 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/lib/bootstrap.min.css">
-        <link rel="stylesheet" href="/style.css">
-        <script src="/lib/jquery.min.js"></script>
-        <script src="/lib/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="jumbotron text-center" id="divheader">
             <h1>Edit List</h1>
         </div>
-        <div class="container" id="saveAs">
+        <div id="saveAs">
             <label for="">Save As:</label>
             <input type="text">
             <button type="button" class="btn btn-default">OK</button>
+        </div>
+        <div class="container" id="addTask">
+            <label>New Task:</label>
+            <input type="text">
+            <button type="button" class="btn btn-default">Add</button>
+        </div>
+        <div class="container" id="tasks">
+            <div class="row">
+                <div class="col-xs-2"><span class="glyphicon glyphicon-arrowup"></span></div>
+                <div class="col-xs-4">Task 1</div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+            </div>
         </div>
     </body>
 </html>
