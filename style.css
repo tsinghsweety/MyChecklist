@@ -1,29 +1,47 @@
+@media only screen and (max-device-width:500px){
+    #topIcons{
+        width: 76%;
+    }
+    #saveAs,
+    #addTask{
+        width: 61%;
+        margin-left: 50px;
+    }
+}
 #divheader{
     background-color: darkcyan!important;
     color: white;
 }
+#topIconsContainer{
+    width: 52%;
+}
 #topIcons{
     float:right;
+    padding-bottom: 10px;
 }
 /*.row:(odd){
     background-color: #afeeee;
 }*/
 .row:nth-child(even){
-  background-color: #dcdcdc;
+    background-color: #dcdcdc;
 }
 .row:nth-child(odd){
-  background-color: #aaaaaa;
+    background-color: #aaaaaa;
 }
 #listGroup{
     width: 50%;
 }
-#saveAs{
-    margin-left: 41px;
+#saveAs,
+#addTask{
+/*    width:80%;*/
+    margin-left: 126px;
+/*    float: right;*/
 }
 #addTask{
-    margin-left: 41px;
+/*    margin-left: 41px;*/
     padding: 10px 0px 10px 0px;
 }
-#tasks{
+#taskGroup{
     width: 80%;
+    cursor: pointer;
 }

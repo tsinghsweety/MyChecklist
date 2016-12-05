@@ -15,19 +15,80 @@
         <div id="saveAs">
             <label for="">Save As:</label>
             <input type="text">
-            <button type="button" class="btn btn-default">OK</button>
+            <a href="index.html" class="btn btn-default" role="button">OK</a>
         </div>
         <div class="container" id="addTask">
             <label>New Task:</label>
             <input type="text">
             <button type="button" class="btn btn-default">Add</button>
         </div>
-        <div class="container" id="tasks">
+        <div class="container" id="taskGroup">
             <div class="row">
-                <div class="col-xs-2"><span class="glyphicon glyphicon-arrowup"></span></div>
-                <div class="col-xs-4">Task 1</div>
+                <div class="col-xs-6">Task 1</div>
                 <div class="col-xs-2"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editListModal"></span></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteTaskModal"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Task 2</div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteTaskModal"></span></div>
+            </div>
+            <!-- MoveTask Modal -->
+            <div class="modal fade" id="moveTaskModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Move To</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Move task to the following list:</p>
+                  <form>
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">List A</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">List B</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">List C</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">List D</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">List E</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+                </div>
+            </div>
+            <!-- deleteTask Modal -->
+            <div class="modal fade" id="deleteTaskModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Delete Task</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Do you want to delete the task?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+                </div>
             </div>
         </div>
     </body>

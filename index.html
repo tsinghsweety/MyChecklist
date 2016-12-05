@@ -12,7 +12,7 @@
         <div class="jumbotron text-center" id="divheader">
             <h1>My Checklist</h1>
         </div>
-        <div class="container">
+        <div class="container" id="topIconsContainer">
             <div class="btn-group" id="topIcons">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addListModal">Add List</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
@@ -29,22 +29,26 @@
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" value=""></div>
                 <div class="col-xs-4">List B</div>
-                <div class="col-xs-4"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" value=""></div>
                 <div class="col-xs-4">List C</div>
-                <div class="col-xs-4"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" value=""></div>
                 <div class="col-xs-4">List D</div>
-                <div class="col-xs-4"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" value=""></div>
                 <div class="col-xs-4">List E</div>
-                <div class="col-xs-4"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <!-- addList Modal -->
             <div class="modal fade" id="addListModal" role="dialog">
