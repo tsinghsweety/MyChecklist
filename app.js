@@ -43,14 +43,33 @@ function deleteMultipleLists(){
 
 function addList(newListName){
     console.log(newListName);
-    var newRow = document.createElement("div");
-    newRow.className = "row";
-    newRow.appendChild(document.createElement("p"));
-    newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
-    console.log(newRow);
-    document.getElementById("listGroup").appendChild(newRow);
+    if(newListName){
+        var newRow = document.createElement("div");
+        newRow.className = "row";
+        newRow.appendChild(document.createElement("p"));
+        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
+        console.log(newRow);
+        document.getElementById("listGroup").appendChild(newRow);
+   }else{
+       alert("You have not entered the list name!");
+   }
 }
 
 function mergeList(newListName){
-    addList(newListName);
+    console.log("Inside merge");
+    var selectedRows = getCheckedBoxes("chkbox");
+    console.log("selectedRows For Merging");
+    console.log(selectedRows);
+    if(selectedRows){
+        if(!newListName){
+            alert("Please enter the merge list name!");
+        }
+        for(var j=0; j<selectedRows.length; j++){
+//            addList(newListName);
+//            selectedRows[j].merge();
+//            selectedRows[j].remove();
+        }
+    }else{
+        alert("Please select the lists to be merged");
+    }
 }

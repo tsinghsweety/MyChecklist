@@ -17,7 +17,7 @@
             <div class="btn-group" id="topIcons">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addListModal">Add List</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                <button type="button" class="btn btn-primary">Merge</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mergeListModal">Merge</button>
             </div>
         </div>
         <div class="container" id="listGroup">
@@ -107,6 +107,26 @@
                   <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                 </div>
             </div>
+                </div>
+            </div>
+            <!-- mergeList Modal -->
+            <div class="modal fade" id="mergeListModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Merge Lists</h4>
+                        </div>
+                        <div class="modal-body">
+                          <label>Save As:</label>
+                          <input type="text" id="newMergeList" value="">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" onclick="mergeList(newMergeList.value)" data-dismiss="modal">Ok</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
