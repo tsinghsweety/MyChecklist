@@ -44,7 +44,13 @@ function deleteMultipleLists(){
 function addList(newListName){
     console.log(newListName);
     var newRow = document.createElement("div");
-//    newRow=newRow.add("row");
+    newRow.className = "row";
     newRow.appendChild(document.createElement("p"));
+    newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
     console.log(newRow);
+    document.getElementById("listGroup").appendChild(newRow);
+}
+
+function mergeList(newListName){
+    addList(newListName);
 }
