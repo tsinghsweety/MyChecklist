@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css">
         <script src="lib/jquery.min.js"></script>
         <script src="lib/bootstrap.min.js"></script>
+        <script src="app.js"></script>
     </head>
     <body>
         <div class="jumbotron text-center" id="divheader">
@@ -21,34 +22,34 @@
         </div>
         <div class="container" id="listGroup">
             <div class="row">
-                <div class="col-xs-4"><input type="checkbox" value=""></div>
+                <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List A</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="chk(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
-                <div class="col-xs-4"><input type="checkbox" value=""></div>
+                <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List B</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="chk(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
-                <div class="col-xs-4"><input type="checkbox" value=""></div>
+                <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List C</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="chk(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
-                <div class="col-xs-4"><input type="checkbox" value=""></div>
+                <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List D</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="chk(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
-                <div class="col-xs-4"><input type="checkbox" value=""></div>
+                <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List E</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="chk(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <!-- addList Modal -->
             <div class="modal fade" id="addListModal" role="dialog">
@@ -61,10 +62,10 @@
                         </div>
                         <div class="modal-body">
                           <label>Create List:</label>
-                          <input type="text">
+                          <input type="text" id="newList" value="">
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                          <button type="button" class="btn btn-default" onclick="addList(newList.value)" data-dismiss="modal">Ok</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -83,7 +84,7 @@
                           <p>Do you want to delete the selected lists?</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                          <button type="button" class="btn btn-default" onclick="deleteMultipleLists()" data-dismiss="modal">Yes</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                         </div>
                     </div>
@@ -102,34 +103,12 @@
                   <p>Do you want to delete the list?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" onclick="myFunction(this)" class="btn btn-default" data-dismiss="modal">Yes</button>
+                  <button type="button" onclick="deleteList(this)" class="btn btn-default" data-dismiss="modal">Yes</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                 </div>
             </div>
                 </div>
             </div>
         </div>
-    <script>
-        var globalObj = null;
-        function chk(event){
-            console.log("Inside chk");
-            console.log(event.target.parentNode);
-            globalObj = event.target.parentNode.parentNode;
-
-//            while(obj.getAttribute('class')!="row"){
-//                console.log("inside while");
-//                obj = obj.parentNode;
-//            }
-        }
-        function myFunction(el){
-            var doc = document.getElementsByClassName("row");
-            console.log(doc);
-            console.log(doc.length);
-            console.log(el);
-            if(globalObj) {
-                globalObj.remove();
-            }
-        }
-    </script>
     </body>
 </html>
