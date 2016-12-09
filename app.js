@@ -46,7 +46,7 @@ function addList(newListName){
     if(newListName){
         var newRow = document.createElement("div");
         newRow.className = "row";
-        newRow.appendChild(document.createElement("p"));
+//        newRow.appendChild(document.createElement("p"));
         newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
         console.log(newRow);
         document.getElementById("listGroup").appendChild(newRow);
@@ -75,5 +75,17 @@ function mergeList(newListName){
         }
     }else{
         alert("Please select the lists to be merged");
+    }
+}
+
+function addTask(newTask){
+    console.log(newTask);
+    if(newTask){
+        var newRow = document.createElement("div");
+        newRow.className = "row";
+        newRow.innerHTML = '<div class="col-xs-6" contenteditable="true">'+newTask+'</div><div class="col-xs-2"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteTaskModal"></span></div></div>';
+        document.getElementById("taskGroup").appendChild(newRow);
+    }else{
+        alert("You have not entered the task!");    // not  required
     }
 }
