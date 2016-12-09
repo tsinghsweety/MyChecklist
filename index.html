@@ -25,31 +25,31 @@
                 <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List A</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List B</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List C</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List D</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <div class="row">
                 <div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div>
                 <div class="col-xs-4">List E</div>
                 <div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div>
-                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
+                <div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>
             </div>
             <!-- addList Modal -->
             <div class="modal fade" id="addListModal" role="dialog">
@@ -103,7 +103,7 @@
                   <p>Do you want to delete the list?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" onclick="deleteList(this)" class="btn btn-default" data-dismiss="modal">Yes</button>
+                  <button type="button" onclick="deleteItem()" class="btn btn-default" data-dismiss="modal">Yes</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                 </div>
             </div>

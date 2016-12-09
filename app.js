@@ -1,14 +1,14 @@
 var globalObj = null;
-function selectedList(event){
+function selectedItem(event){
     console.log("Inside chk");
     console.log(event.target.parentNode);
     globalObj = event.target.parentNode.parentNode;
 }
-function deleteList(el){
+function deleteItem(){
     var doc = document.getElementsByClassName("row");
     console.log(doc);
     console.log(doc.length);
-    console.log(el);
+//    console.log(el);
     if(globalObj) {
         globalObj.remove();
     }
@@ -47,7 +47,7 @@ function addList(newListName){
         var newRow = document.createElement("div");
         newRow.className = "row";
         newRow.appendChild(document.createElement("p"));
-        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedList(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
+        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
         console.log(newRow);
         document.getElementById("listGroup").appendChild(newRow);
    }else{
@@ -66,11 +66,12 @@ function mergeList(newListName){
         }
         if(selectedRows.length<2){
             alert("Please select the list to be merged with the checked list!");
-        }
-        addList(newListName);
-        for(var j=0; j<selectedRows.length; j++){
+        }else{
+            addList(newListName);
+            for(var j=0; j<selectedRows.length; j++){
             // CODE FOR MERGING THE LISTS --- MISSING
-            selectedRows[j].remove();
+                selectedRows[j].remove();
+            }
         }
     }else{
         alert("Please select the lists to be merged");
