@@ -1,4 +1,22 @@
+var dataObj=JSON.parse(data);
+console.log(dataObj);
+console.log(dataObj.length);
+console.log(dataObj[0].listname);
+
 var globalObj = null;
+function createPage(){
+    console.log("createPage");
+    var newRow = document.createElement("div");
+    newRow.className = "row";
+    for(var i=0; i<dataObj.length; i++){
+        console.log(dataObj[i]);
+        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+dataObj[i].listname+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
+        console.log(newRow);
+        document.getElementById("listGroup").appendChild(newRow);
+        newRow = document.createElement("div");
+        newRow.className = "row";
+    }
+}
 function selectedItem(event){
     console.log("Inside chk");
     console.log(event.target.parentNode);
