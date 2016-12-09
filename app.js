@@ -64,10 +64,13 @@ function mergeList(newListName){
         if(!newListName){
             alert("Please enter the merge list name!");
         }
+        if(selectedRows.length<2){
+            alert("Please select the list to be merged with the checked list!");
+        }
+        addList(newListName);
         for(var j=0; j<selectedRows.length; j++){
-//            addList(newListName);
-//            selectedRows[j].merge();
-//            selectedRows[j].remove();
+            // CODE FOR MERGING THE LISTS --- MISSING
+            selectedRows[j].remove();
         }
     }else{
         alert("Please select the lists to be merged");

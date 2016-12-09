@@ -19,9 +19,6 @@
     float:right;
     padding-bottom: 10px;
 }
-/*.row:(odd){
-    background-color: #afeeee;
-}*/
 .row:nth-child(even){
     background-color: #dcdcdc;
 }
@@ -33,12 +30,9 @@
 }
 #saveAs,
 #addTask{
-/*    width:80%;*/
     margin-left: 126px;
-/*    float: right;*/
 }
 #addTask{
-/*    margin-left: 41px;*/
     padding: 10px 0px 10px 0px;
 }
 #taskGroup{
