@@ -1,7 +1,7 @@
 var dataObj=JSON.parse(data);
+localStorage.setItem('mainData', data);
 console.log(dataObj);
 console.log(dataObj.length);
-console.log(dataObj[0].listname);
 
 var globalObj = null;
 function createPage(){
@@ -68,6 +68,11 @@ function addList(newListName){
         newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
         console.log(newRow);
         document.getElementById("listGroup").appendChild(newRow);
+        dataObj.push({
+            listname: newListName
+        });
+        data = JSON.stringify(dataObj);
+        console.log(JSON.parse(data));
    }else{
        alert("You have not entered the list name!");
    }
