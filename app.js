@@ -1,5 +1,5 @@
 var dataObj=JSON.parse(data);
-localStorage.setItem('mainData', data);
+//localStorage.setItem('mainData', data);
 console.log(dataObj);
 console.log(dataObj.length);
 
@@ -16,6 +16,25 @@ function createPage(){
         newRow = document.createElement("div");
         newRow.className = "row";
     }
+}
+function createTaskPage(){
+    console.log("createTaskPage");
+    var newTaskRow = document.createElement("div");
+    newTaskRow.className = "row";
+    for(var i=0; i<dataObj.length; i++){
+        for(var j=0; j<dataObj[i].tasks.length; j++){
+            console.log(dataObj[i].tasks[j].task);
+            newTaskRow.innerHTML = '<div class="col-xs-6" contenteditable="true">'+dataObj[i].tasks[j].task+'</div><div class="col-xs-3"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div><div class="col-xs-3"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteTaskModal"></span></div>' ;
+            console.log(newTaskRow);
+            document.getElementById("taskGroup").appendChild(newTaskRow);
+            newTaskRow = document.createElement("div");
+            newTaskRow.className = "row";
+
+        }
+
+
+    }
+
 }
 function selectedItem(event){
     console.log("Inside chk");
