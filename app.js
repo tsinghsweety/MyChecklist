@@ -1,5 +1,7 @@
 var globalObj = null;
 var mainData = null;
+var selectedObj = null;
+var selectedIndex = null;
 
 if (typeof(Storage) !== "undefined") {
     console.log("Code for localStorage/sessionStorage.");
@@ -19,7 +21,7 @@ function createPage(){
     newRow.className = "row";
     for(var i=0; i<mainDataObj.length; i++){
         console.log(mainDataObj[i]);
-        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+mainDataObj[i].listname+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
+        newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+mainDataObj[i].listname+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" onclick="selectedItem(event)" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
         console.log(newRow);
         document.getElementById("listGroup").appendChild(newRow);
         newRow = document.createElement("div");
@@ -28,12 +30,14 @@ function createPage(){
 }
 function createTaskPage(){
     console.log("createTaskPage");
+    selectedIndex = localStorage.getItem("selectedIndex");
+    console.log("selectedIndex:",selectedIndex);
     var newTaskRow = document.createElement("div");
     newTaskRow.className = "row";
-    for(var i=0; i<mainDataObj.length; i++){
-        for(var j=0; j<mainDataObj[i].tasks.length; j++){
-            console.log(mainDataObj[i].tasks[j].task);
-            newTaskRow.innerHTML = '<div class="col-xs-6" contenteditable="true">'+mainDataObj[i].tasks[j].task+'</div><div class="col-xs-3"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div><div class="col-xs-3"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteTaskModal"></span></div>' ;
+//    for(var i=0; i<mainDataObj.length; i++){
+        for(var j=0; j<mainDataObj[selectedIndex].tasks.length; j++){
+            console.log(mainDataObj[selectedIndex].tasks[j].task);
+            newTaskRow.innerHTML = '<div class="col-xs-6" contenteditable="true">'+mainDataObj[selectedIndex].tasks[j].task+'</div><div class="col-xs-3"><span class="glyphicon glyphicon-new-window" data-toggle="modal" data-target="#moveTaskModal"></span></div><div class="col-xs-3"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteTaskModal"></span></div>' ;
             console.log(newTaskRow);
             document.getElementById("taskGroup").appendChild(newTaskRow);
             newTaskRow = document.createElement("div");
@@ -42,13 +46,51 @@ function createTaskPage(){
         }
 
 
+//    }
+
+}
+
+function searchParent(el, type, value){
+    console.log("el:",el);
+    console.log("type:",type);
+    console.log("value:",value);
+    var child = el;
+    while(child.className !== value){
+        child = child.parentNode;
     }
 
+    return child;
 }
 function selectedItem(event){
     console.log("Inside chk");
-    console.log(event.target.parentNode);
-    globalObj = event.target.parentNode.parentNode;
+    selectedObj = event.target;
+    console.log("selectedObj: ",selectedObj);
+    var count=0;
+    while(selectedObj.className !== "row"){
+        selectedObj = selectedObj.parentNode;
+        count++;
+    }
+    console.log("Final count: ",count)
+    console.log("Final selectedObj: ",selectedObj)
+
+    var mainArr = document.getElementsByClassName("row");
+
+//    globalObj = event.target.parentNode.parentNode;
+    selectedIndex = getIndex(mainArr,selectedObj);
+
+    localStorage.setItem("globalObj",selectedObj);
+    console.log("Local:globalObj:  ",localStorage.getItem("globalObj"));
+    globalObj = localStorage.getItem("globalObj");
+    localStorage.setItem("selectedIndex",selectedIndex);
+    selectedIndex = localStorage.getItem("selectedIndex");
+    console.log("selectedIndex:",selectedIndex);
+}
+function getIndex(nodeList, node){
+    for(var i=0;i<nodeList.length;i++){
+        if(node === nodeList[i]){
+            return i;
+        }
+    }
 }
 function deleteItem(){
     var doc = document.getElementsByClassName("row");
@@ -96,11 +138,14 @@ function addList(newListName){
         newRow.innerHTML = '<div class="col-xs-4"><input type="checkbox" name="chkbox" value=""></div><div class="col-xs-4">'+newListName+'</div><div class="col-xs-2"><a href="editList.html"><span class="glyphicon glyphicon-edit" data-toggle="modal"></span></a></div><div class="col-xs-2"><span class="glyphicon glyphicon-remove" onclick="selectedItem(event)" data-toggle="modal" data-target="#deleteListModal"></span></div>';
         console.log(newRow);
         document.getElementById("listGroup").appendChild(newRow);
-        dataObj.push({
+        mainDataObj.push({
             listname: newListName
         });
-        data = JSON.stringify(dataObj);
-        console.log(JSON.parse(data));
+        data = JSON.stringify(mainDataObj);
+        localStorage.setItem("mainData",data);
+        console.log(data);
+        console.log(localStorage.getItem("mainData"));
+//        console.log(JSON.parse(data));
    }else{
        alert("You have not entered the list name!");
    }
