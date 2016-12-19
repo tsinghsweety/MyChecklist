@@ -96,9 +96,8 @@ function deleteItem(){
     var doc = document.getElementsByClassName("row");
     console.log(doc);
     console.log(doc.length);
-//    console.log(el);
-    if(globalObj) {
-        globalObj.remove();
+    if(selectedObj) {
+        selectedObj.remove();
     }
 }
 // Pass the checkbox name to the function
