@@ -78,9 +78,9 @@ function selectedItem(event){
 //    globalObj = event.target.parentNode.parentNode;
     selectedIndex = getIndex(mainArr,selectedObj);
 
-    localStorage.setItem("globalObj",selectedObj);
-    console.log("Local:globalObj:  ",localStorage.getItem("globalObj"));
-    globalObj = localStorage.getItem("globalObj");
+//    localStorage.setItem("globalObj",selectedObj);
+//    console.log("Local:globalObj:  ",localStorage.getItem("globalObj"));
+//    globalObj = localStorage.getItem("globalObj");
     localStorage.setItem("selectedIndex",selectedIndex);
     selectedIndex = localStorage.getItem("selectedIndex");
     console.log("selectedIndex:",selectedIndex);
@@ -98,6 +98,18 @@ function deleteItem(){
     console.log(doc.length);
     if(selectedObj) {
         selectedObj.remove();
+        console.log("mainDataObj[selectedIndex]:",mainDataObj[selectedIndex]);
+        console.log("mainDataObj:",mainDataObj);
+        console.log(delete mainDataObj[selectedIndex]);
+        console.log("mainDataObj after delete: ",mainDataObj);
+//        clean(mainDataObj);
+        data = JSON.stringify(mainDataObj);
+//        console.log("data",data);
+        localStorage.setItem("mainData",data);
+        localStorage.setItem("data",data);
+        data = cleanArray(data);
+        console.log(localStorage.getItem("mainData"));
+        console.log(localStorage.getItem("data"));
     }
 }
 // Pass the checkbox name to the function
@@ -184,3 +196,16 @@ function addTask(newTask){
         alert("You have not entered the task!");    // not  required
     }
 }
+
+function cleanArray(actual) {
+    console.log("actual:",actual);
+    console.log("actual length:",actual.length);
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i]) {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
+
