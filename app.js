@@ -138,6 +138,7 @@ function deleteMultipleLists(){
     }else{
         alert("Please select the list to be deleted");
     }
+    console.log();
 }
 
 function addList(newListName){
